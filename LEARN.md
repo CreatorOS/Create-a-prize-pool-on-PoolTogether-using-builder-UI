@@ -49,11 +49,11 @@ Now, fire up these commands to install the dependencies if you haven't already a
 
 You can go to [https://rinkeby.etherscan.io](https://rinkeby.etherscan.io) and paste your wallet address there.
 In the transactions section you will see all the contracts that were deployed with just one command.
-[][/learn_src/learn_assets/1.png]
+![](/learn_src/learn_assets/1.png)
 
 Copy the address of PoolWithMultipleWinnersBuilders deployed contract from deployment logs. 
 It's probably the last the one as shown below:
-[][/learn_src/learn_assets/2.png]
+![](/learn_src/learn_assets/2.png)
 
 
 ## Setup PoolTogether Builder UI
@@ -92,7 +92,7 @@ Allow direnv now:
 
 Update the `lib/constants.js` file with the PoolWithMultipleWinnersBuilders address we grabed earlier like shown below:
 
-[][/learn_src/learn_assets/2.png]
+![](/learn_src/learn_assets/2.png)
 
 Now start the server:
 ```
