@@ -92,7 +92,7 @@ Allow direnv now:
 
 Update the `lib/constants.js` file with the PoolWithMultipleWinnersBuilders address we grabed earlier like shown below:
 
-![](/learn_src/learn_assets/2.png)
+![](/learn_src/learn_assets/3.png)
 
 Now start the server:
 ```
