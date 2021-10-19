@@ -29,8 +29,9 @@ Copy over .envrc.example to .envrc
     cp .envrc.example .envrc
 ```
 
-Open up .envrc  
- - Paste the recovery phrase of your testing metamask account in HDWALLET_MNEMONIC. - Same for infura api key and etherscan api key
+Open up .envrc
+
+- Paste the recovery phrase of your testing metamask account in HDWALLET_MNEMONIC. - Same for infura api key and etherscan api key
 
 You need to install [direnv](https://direnv.net/docs/installation.html) before moving forward.
 
@@ -50,12 +51,12 @@ Now, fire up these commands to install the dependencies if you haven't already a
 You can go to [https://rinkeby.etherscan.io](https://rinkeby.etherscan.io) and paste your wallet address there.
 In the transactions section you will see all the contracts that were deployed with just one command.
 
-![][/learn_src/learn_assets/1.png]
+![](/learn_src/learn_assets/1.png)
 
 Copy the address of PoolWithMultipleWinnersBuilders deployed contract from deployment logs.
 It's probably the last the one as shown below:
 
-![][/learn_src/learn_assets/2.png]
+![](/learn_src/learn_assets/2.png)
 
 ## Setup PoolTogether Builder UI
 
@@ -112,12 +113,12 @@ This builder allows us to create a Prize Pool with a multiple winners prize stra
 
 The first option is to select a Deposit Token and a yield source.
 
-![][/learn_src/learn_assets/4.png]
+![](/learn_src/learn_assets/4.png)
 
 We will select $DAI as the token and Compound as the yield source. What this means is we will allow users to deposit DAI token in the prize pool.
 In turn our pool will submit those DAI tokens to Compound to generate interest which will be awarded to the winners/winner based on the prize strategy.
 
-![][/learn_src/learn_assets/5.png]
+![](/learn_src/learn_assets/5.png)
 
 Next up we have Pool Ticket.
 Tickets give you chance to win.
@@ -131,7 +132,7 @@ They are purely for contributing to the yeild.
 This is what PoolTogether uses to boost up the prize pools when they're low.
 Leave those as defaults as well.
 
-![][/learn_src/learn_assets/6.png]
+![](/learn_src/learn_assets/6.png)
 
 Next we have Random Number Generator.
 It's a swappable service provided by PoolTogether.
@@ -141,13 +142,13 @@ Or else people will game the system.
 
 Let's just select Blockhash to keep it simple.
 
-![][/learn_src/learn_assets/7.jpg]
+![](/learn_src/learn_assets/7.jpg]
 
 After that we have Prize Period.
 Let's select a prize period which very short say 1 minute so that we can easily play around with it.
 Set it as 0.00069 which is 1 minute in days.
 
-![][/learn_src/learn_assets/8.png]
+![](/learn_src/learn_assets/8.png)
 
 Next up we have Number of Winners.
 Let's just have 1 winner for this prize pool. We can select multiple winners as well.
@@ -155,7 +156,7 @@ Let's just have 1 winner for this prize pool. We can select multiple winners as 
 If you want to distribute some percentage of prize to a static address before awarding winners, you can configure it in the Prize Split section.
 We will leave it as it is.
 
-![][/learn_src/learn_assets/9.png]
+![](/learn_src/learn_assets/9.png)
 
 Finally we have Fairness.
 This configuration allows the pool owner to prevent people from depositing money and withdrawing right away.
@@ -181,7 +182,7 @@ Click on 'View pool in Community UI' button to start interacting with the Prize 
 
 This will open up [https://community.pooltogether.com](https://community.pooltogether.com) with our prize pool preselected.
 
-![][/learn_src/learn_assets/10.png]
+![](/learn_src/learn_assets/10.png)
 
 You will see the timer for the prize pool that we set as 1 minute. It might have already run out of time.
 
@@ -189,7 +190,7 @@ Click on 'Account Balance' now.
 
 Under Prize Pool Info, you will observe we have zero deposits in the pool.
 
-![][/learn_src/learn_assets/11.png]
+![](/learn_src/learn_assets/11.png)
 
 Let's deposit some DAI tokens.
 If you don't already have DAI tokens then get some ethers from a rinkeby faucet and head over to [https://app.uniswap.org](https://app.uniswap.org) and swap those Ethers for DAI tokens.
@@ -198,7 +199,7 @@ While swapping for DAI tokens on Uniswap make sure the DAI token's address is 0x
 
 Once you have correct DAI tokens it will show up under Prize Pool info as well. In the above screenshot it is 345 DAI.
 
-![][/learn_src/learn_assets/12.png]
+![](/learn_src/learn_assets/12.png)
 
 Now click on 'Approve DAI'.
 If you have done the basics of ethereum course you might remember we need to approve tokens before a third party can swap it. This is exactly what we are doing here.
@@ -209,11 +210,11 @@ Let's deposit 50 DAI tokens. Enter 50 and click on 'Deposit'.
 
 Now, check the Prize Pool Info you will see the amount we just deposited 50 DAI. Hurray!
 
-![][/learn_src/learn_assets/13.png]
+![](/learn_src/learn_assets/13.png)
 
 If you refresh the page, you will see we some prize money as well.
 
-![][/learn_src/learn_assets/14.png]
+![](/learn_src/learn_assets/14.png)
 
 ## Depositing and withdrawing
 
@@ -221,13 +222,13 @@ Let's try to withdraw instantly. If you remember we set 3 minutes as Exit Fee De
 
 If 3 minutes have not passed already and if you enter the max withdraw amount by clicking on 50.00 DAI written above DAI. You will see below warning.
 
-![][/learn_src/learn_assets/15.png]
+![](/learn_src/learn_assets/15.png)
 
 Click 'Withdraw anyway and pay ... DAI'.
 
 The amount you paid in exit fee gets credited to the prize amount.
 
-![][/learn_src/learn_assets/16.png]
+![](/learn_src/learn_assets/16.png)
 
 But if you were to wait for 3 minutes you will get your full deposited amount back without any penalty.
 
@@ -238,7 +239,7 @@ Before we see how to start the award, let's first deposit 50 DAI in the pool aga
 Once done, click on 'Prize Details' link at the bottom.
 And click on 'Add PTccDAI to metamask'
 
-![][/learn_src/learn_assets/17.png]
+![](/learn_src/learn_assets/17.png)
 
 Now if you check Assests section in the metamask wallet.
 You will see the 50 PTccDAI tokens.
@@ -246,13 +247,13 @@ Those are the tickets or tokens you got for depositing 50 DAI tokens.
 
 Now, let's start the award process.
 
-![][/learn_src/learn_assets/18.png]
+![](/learn_src/learn_assets/18.png)
 
 After few minutes you will be able to click 'Complete award' button as well.
 
 Once you do that, check your deposits. It went up by the Prize amount.
 
-![][/learn_src/learn_assets/19.png]
+![](/learn_src/learn_assets/19.png)
 
 In this case it went up by 0.25 DAI. That means we won the lottery.
 
