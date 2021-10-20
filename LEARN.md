@@ -7,7 +7,8 @@ We will create our own custom Pool or pot where users can deposit tokens and a s
 
 ## Deploying PoolTogether contracts on rinkeby testnet
 
-Before we start setting up and deploying contract, first create accounts and grab api keys from Infura and Etherscan. We will use Infura to deploy our smart contracts to the testnets.
+Before we start setting up and deploying contract, first create accounts and grab api keys from Infura and Etherscan.
+We will use Infura to deploy our smart contracts to the testnets.
 
 Just go to [infura](https://infura.io) and sign up.
 
@@ -31,7 +32,8 @@ Copy over .envrc.example to .envrc
 
 Open up .envrc
 
-- Paste the recovery phrase of your testing metamask account in HDWALLET_MNEMONIC. - Same for infura api key and etherscan api key
+- Paste the recovery phrase of your testing metamask account in HDWALLET_MNEMONIC.
+- Same for infura api key and etherscan api key
 
 You need to install [direnv](https://direnv.net/docs/installation.html) before moving forward.
 
@@ -83,7 +85,7 @@ Now copy over the .envrc.example
 
 Remove all <> values from keys so that we don't get syntax error.
 
-Update the infura id with id we grab earlier.
+Update the infura id with id we grabbed earlier.
 
 Also, change the network name key to `rinkeby`.
 
@@ -109,13 +111,16 @@ Next, we will create a prize pool using this builder.
 
 ## Creating prize pool using Builder UI
 
-This builder allows us to create a Prize Pool with a multiple winners prize strategy. This strategy allows prize awarding periodicallyt to multiple randomly selected winners.
+This builder allows us to create a Prize Pool with a multiple winners prize strategy.
+This strategy allows prize awarding periodically to multiple randomly selected winners.
 
 The first option is to select a Deposit Token and a yield source.
 
 ![](/learn_src/learn_assets/4.png)
 
-We will select $DAI as the token and Compound as the yield source. What this means is we will allow users to deposit DAI token in the prize pool.
+We will select $DAI as the token and Compound as the yield source.
+What this means is we will allow users to deposit DAI token in the prize pool.
+
 In turn our pool will submit those DAI tokens to Compound to generate interest which will be awarded to the winners/winner based on the prize strategy.
 
 ![](/learn_src/learn_assets/5.png)
@@ -142,7 +147,7 @@ Or else people will game the system.
 
 Let's just select Blockhash to keep it simple.
 
-![](/learn_src/learn_assets/7.jpg]
+![](/learn_src/learn_assets/7.png)
 
 After that we have Prize Period.
 Let's select a prize period which very short say 1 minute so that we can easily play around with it.
@@ -162,7 +167,7 @@ Finally we have Fairness.
 This configuration allows the pool owner to prevent people from depositing money and withdrawing right away.
 We have early exit fee which decays in time.
 So let's say we have 1% early exit fee and if you deposit 100 DAI and want to exit right away then you have to pay 1 DAI.
-But let's say the fee decay time is 14 days and if you wait for that much amount of time you can withdraw losslessly with zero fees.
+But let's say the fee decay time is 14 days and if you wait for that much amount of time you can withdraw losslessly with almost zero fees.
 
 Let's keep early exit fee 1% and fee decay time of 0.00208333 which is almost 3 minutes in days just for testing purposes.
 
@@ -184,7 +189,7 @@ This will open up [https://community.pooltogether.com](https://community.pooltog
 
 ![](/learn_src/learn_assets/10.png)
 
-You will see the timer for the prize pool that we set as 1 minute. It might have already run out of time.
+You will see the timer for the prize pool that we set as 1 minute(In the above screenshot the time was set as 3 minutes). It might have already run out of time.
 
 Click on 'Account Balance' now.
 
@@ -195,7 +200,8 @@ Under Prize Pool Info, you will observe we have zero deposits in the pool.
 Let's deposit some DAI tokens.
 If you don't already have DAI tokens then get some ethers from a rinkeby faucet and head over to [https://app.uniswap.org](https://app.uniswap.org) and swap those Ethers for DAI tokens.
 
-While swapping for DAI tokens on Uniswap make sure the DAI token's address is 0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa There are many versions of DAI tokens on rinkeby testnet but we need this tokens.
+While swapping for DAI tokens on Uniswap make sure the DAI token's address is `0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa`.
+There are many versions of DAI tokens on rinkeby testnet but we need this tokens.
 
 Once you have correct DAI tokens it will show up under Prize Pool info as well. In the above screenshot it is 345 DAI.
 
@@ -212,7 +218,7 @@ Now, check the Prize Pool Info you will see the amount we just deposited 50 DAI.
 
 ![](/learn_src/learn_assets/13.png)
 
-If you refresh the page, you will see we some prize money as well.
+If you refresh the page, you will see now some prize amount DAI generated as well.
 
 ![](/learn_src/learn_assets/14.png)
 
@@ -220,7 +226,11 @@ If you refresh the page, you will see we some prize money as well.
 
 Let's try to withdraw instantly. If you remember we set 3 minutes as Exit Fee Decay Time.
 
-If 3 minutes have not passed already and if you enter the max withdraw amount by clicking on 50.00 DAI written above DAI. You will see below warning.
+If 3 minutes have not passed already and if you enter the max withdraw amount by clicking on 50.00 DAI written above DAI.
+You will see below warning.
+0.4166666 DAI is exit fee charges at some particular point of time.
+It decays over time, so if you try to withdraw after a minute or so the fee would have decreased.
+Eventually when the time equals to decay amount of time has passed, the fee will be zero.
 
 ![](/learn_src/learn_assets/15.png)
 
@@ -230,7 +240,7 @@ The amount you paid in exit fee gets credited to the prize amount.
 
 ![](/learn_src/learn_assets/16.png)
 
-But if you were to wait for 3 minutes you will get your full deposited amount back without any penalty.
+But if you were to wait for 3 minutes you would have gotten your full deposited amount back without any charges.
 
 ## Starting the award
 
@@ -263,3 +273,4 @@ Ofcourse, that is only because we are the only ones who deposited money in the p
 
 Now, here's a challenge for you.
 Try depositing DAI tokens from two separate addresses and see who wins.
+After that, create a new pool with 2 or more winners and do the above process again.
